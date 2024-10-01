@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option go_package = "protobuf/generated/comunication";
+
+message InstantMessaging {
+    string name = 1;
+    string phone_number = 2 [json_name="phone_number"];
+}

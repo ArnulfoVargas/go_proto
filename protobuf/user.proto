@@ -2,6 +2,10 @@ syntax="proto3";
 
 option go_package = "protobuf/generated/user";
 
+import "google/protobuf/any.proto";
+import "protobuf/comunication/instant_messaging.proto";
+import "protobuf/comunication/socialmedia.proto";
+
 enum Gender {
     UNSPECIFIED = 0;
     MALE = 1;
@@ -19,6 +23,17 @@ message User {
     Gender gender = 6;
 
     Address address = 7;
+
+    // Any
+    google.protobuf.Any communication_channel = 16 [json_name="communication_channel"];
+
+    // one of
+    oneof electronic_comunication_channel{ 
+        InstantMessaging instant_messaging = 17 [json_name="instant_messaging"];
+        SocialMedia social_media = 18 [json_name="social_media"];
+    };
+
+    map<string, uint32> skill_rating = 19 [json_name="skill_rating"];
 }
 
 message Address {
