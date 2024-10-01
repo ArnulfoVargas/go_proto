@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "protobuf/generated/basic";
+
+message Hello {
+    string name = 1;
+}
+
+message ScalarTypes {
+    uint32 my_uint = 1; // unsigned int32 
+    double my_double = 2; // float64
+    bool my_bool = 3; // bool
+    sint32 my_sint = 4; // signed int32
+    string my_string = 5; // string
+    bytes my_bytes = 6; 
+}
